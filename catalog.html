@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Дом Быта</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-home"></i>
+                <span>Дом Быта</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link active">Каталог</a>
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Каталог товаров</h1>
+                <p>Выбирайте качественные товары для вашего дома</p>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <div class="container">
+                <div class="catalog-layout">
+                    <aside class="filters">
+                        <div class="filter-group">
+                            <h3>Категории</h3>
+                            <ul class="filter-list">
+                                <li><a href="catalog.html" class="filter-link active" data-category="">Все товары</a></li>
+                                <li><a href="catalog.html?category=khoztovary" class="filter-link" data-category="khoztovary"><i class="fas fa-broom"></i> Хоз. товары</a></li>
+                                <li><a href="catalog.html?category=himiya" class="filter-link" data-category="himiya"><i class="fas fa-pump-soap"></i> Бытовая химия</a></li>
+                                <li><a href="catalog.html?category=instrumenty" class="filter-link" data-category="instrumenty"><i class="fas fa-tools"></i> Инструменты</a></li>
+                                <li><a href="catalog.html?category=tekstil" class="filter-link" data-category="tekstil"><i class="fas fa-tshirt"></i> Текстиль</a></li>
+                                <li><a href="catalog.html?category=kuhnya" class="filter-link" data-category="kuhnya"><i class="fas fa-utensils"></i> Для кухни</a></li>
+                                <li><a href="catalog.html?category=dekor" class="filter-link" data-category="dekor"><i class="fas fa-photo-video"></i> Декор</a></li>
+                            </ul>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Цена</h3>
+                            <div class="price-range">
+                                <input type="number" id="minPrice" placeholder="От" min="0">
+                                <input type="number" id="maxPrice" placeholder="До" min="0">
+                                <button class="btn btn-secondary btn-sm" id="applyPriceFilter">Применить</button>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="catalog-content">
+                        <div class="catalog-header">
+                            <div class="sort-options">
+                                <label>Сортировать:</label>
+                                <select id="sortSelect">
+                                    <option value="default">По умолчанию</option>
+                                    <option value="price-asc">По цене (возрастание)</option>
+                                    <option value="price-desc">По цене (убывание)</option>
+                                    <option value="name">По названию</option>
+                                </select>
+                            </div>
+                            <div class="view-options">
+                                <button class="view-btn active" data-view="grid"><i class="fas fa-th-large"></i></button>
+                                <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="products-grid" id="catalogProducts">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Дом Быта</h4>
+                    <p>Всё для вашего дома и уюта</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Покупателям</h4>
+                    <ul>
+                        <li><a href="catalog.html">Каталог товаров</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат товара</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Партнерам</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +7 (800) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@dombyta.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Примерная, д. 10</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Дом Быта. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-overlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Корзина</h2>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span id="cartTotal">0 ₽</span>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>
