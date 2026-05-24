@@ -3,201 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дом Быта - Главная</title>
+    <title>Дом Быта | Современный магазин</title>
+    <!-- Иконка сайта (favicon) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключаем иконки FontAwesome для красоты -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-home"></i>
-                <span>Дом Быта</span>
-            </a>
-            <nav class="nav">
-                <a href="index.html" class="nav-link active">Главная</a>
-                <a href="catalog.html" class="nav-link">Каталог</a>
-                <a href="about.html" class="nav-link">О нас</a>
-                <a href="contacts.html" class="nav-link">Контакты</a>
-            </nav>
-            <div class="header-actions">
-                <button class="cart-btn" id="cartBtn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+
+    <header class="glass-panel">
+        <div class="logo">
+            <i class="fa-solid fa-house-chimney"></i> Дом Быта
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon-wrapper">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            <span class="cart-count">0</span>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-content">
-                <h1>Всё для вашего дома в одном месте</h1>
-                <p>Хозяйственные товары, бытовая химия, инструменты и многое другое с доставкой на дом</p>
-                <a href="catalog.html" class="btn btn-primary">Перейти в каталог</a>
-            </div>
-        </section>
+    <section class="hero glass-panel">
+        <h1>Уют и порядок в каждом доме</h1>
+        <p>Лучшие товары для дома, бытовая химия и инструменты по выгодным ценам. <br>Быстрая доставка и гарантия качества.</p>
+        <a href="catalog.html" class="add-to-cart-btn" style="display:inline-block; width:auto; text-decoration:none;">Перейти в каталог</a>
+    </section>
 
-        <section class="features">
-            <div class="container">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-truck"></i>
-                        <h3>Быстрая доставка</h3>
-                        <p>Доставим заказ в течение 1-3 дней по всей России</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Гарантия качества</h3>
-                        <p>Только проверенные товары от надежных производителей</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-headset"></i>
-                        <h3>Поддержка 24/7</h3>
-                        <p>Наши специалисты всегда готовы помочь вам</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-wallet"></i>
-                        <h3>Выгодные цены</h3>
-                        <p>Регулярные акции и скидки для постоянных клиентов</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="categories">
-            <div class="container">
-                <h2 class="section-title">Популярные категории</h2>
-                <div class="categories-grid">
-                    <a href="catalog.html?category=khoztovary" class="category-card">
-                        <i class="fas fa-broom"></i>
-                        <h3>Хоз. товары</h3>
-                    </a>
-                    <a href="catalog.html?category=himiya" class="category-card">
-                        <i class="fas fa-pump-soap"></i>
-                        <h3>Бытовая химия</h3>
-                    </a>
-                    <a href="catalog.html?category=instrumenty" class="category-card">
-                        <i class="fas fa-tools"></i>
-                        <h3>Инструменты</h3>
-                    </a>
-                    <a href="catalog.html?category=tekstil" class="category-card">
-                        <i class="fas fa-tshirt"></i>
-                        <h3>Текстиль</h3>
-                    </a>
-                    <a href="catalog.html?category=kuhnya" class="category-card">
-                        <i class="fas fa-utensils"></i>
-                        <h3>Для кухни</h3>
-                    </a>
-                    <a href="catalog.html?category=dekor" class="category-card">
-                        <i class="fas fa-photo-video"></i>
-                        <h3>Декор</h3>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="popular-products">
-            <div class="container">
-                <h2 class="section-title">Популярные товары</h2>
-                <div class="products-grid" id="popularProducts">
-                </div>
-            </div>
-        </section>
-
-        <section class="info-section">
-            <div class="container">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3><i class="fas fa-info-circle"></i> О магазине</h3>
-                        <p>«Дом Быта» — ваш надежный помощник в создании уюта и комфорта. Мы работаем с 2015 года и предлагаем более 5000 товаров для дома.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3><i class="fas fa-phone"></i> Контакты</h3>
-                        <p>📞 +7 (800) 123-45-67<br>✉️ info@dombyta.ru<br>📍 г. Москва, ул. Примерная, д. 10</p>
-                    </div>
-                    <div class="info-card">
-                        <h3><i class="fas fa-clock"></i> Режим работы</h3>
-                        <p>Пн-Пт: 9:00 - 20:00<br>Сб-Вс: 10:00 - 18:00<br>Техподдержка: круглосуточно</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>Дом Быта</h4>
-                    <p>Всё для вашего дома и уюта</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-vk"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Покупателям</h4>
-                    <ul>
-                        <li><a href="catalog.html">Каталог товаров</a></li>
-                        <li><a href="#">Доставка и оплата</a></li>
-                        <li><a href="#">Возврат товара</a></li>
-                        <li><a href="#">Гарантия</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Компания</h4>
-                    <ul>
-                        <li><a href="about.html">О нас</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
-                        <li><a href="#">Вакансии</a></li>
-                        <li><a href="#">Партнерам</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Контакты</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> +7 (800) 123-45-67</li>
-                        <li><i class="fas fa-envelope"></i> info@dombyta.ru</li>
-                        <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Примерная, д. 10</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Дом Быта. Все права защищены.</p>
-                <p class="author-credit">Разработчик: Амет</p>
-            </div>
+    <div class="container">
+        <h2 style="text-align:center; margin-bottom:30px;">Популярные категории</h2>
+        <div class="products-grid" id="featured-products">
+            <!-- Товары загружаются через JS -->
         </div>
+    </div>
+
+    <footer class="glass-panel">
+        <div class="social-links" style="margin-bottom: 20px;">
+            <a href="#" style="color:white; margin:0 10px; font-size:1.5rem;"><i class="fa-brands fa-vk"></i></a>
+            <a href="#" style="color:white; margin:0 10px; font-size:1.5rem;"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" style="color:white; margin:0 10px; font-size:1.5rem;"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p>Тех. поддержка: support@dombyta.ru | Тел: +7 (999) 000-00-00</p>
+        <p>&copy; 2024 Дом Быта. Все права защищены.</p>
+        <p class="author-name">Разработчик: Амет</p>
     </footer>
 
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-overlay"></div>
-        <div class="cart-content">
-            <div class="cart-header">
-                <h2>Корзина</h2>
-                <button class="close-cart" id="closeCart">&times;</button>
+    <!-- Модальное окно корзины -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            <h2>Ваша корзина</h2>
+            
+            <div class="cart-items">
+                <!-- Товары корзины -->
             </div>
-            <div class="cart-items" id="cartItems">
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Итого:</span>
-                    <span id="cartTotal">0 ₽</span>
+
+            <div class="promo-section">
+                <label>Есть промокод?</label>
+                <div class="promo-input-group">
+                    <input type="text" id="promoCode" placeholder="Введите код (например: SALE2024)">
+                    <button id="applyPromo" class="apply-promo-btn">OK</button>
                 </div>
-                <button class="btn btn-primary btn-block" id="checkoutBtn">Оформить заказ</button>
+                <p id="promoMessage" style="font-size:0.9rem; margin-top:5px; height:1.2em;"></p>
             </div>
+
+            <div class="payment-methods">
+                <div class="payment-badge"><i class="fa-solid fa-qrcode"></i> СБП</div>
+                <div class="payment-badge"><i class="fa-brands fa-yandex"></i> Yandex Pay</div>
+                <div class="payment-badge"><i class="fa-regular fa-credit-card"></i> Карты РФ</div>
+            </div>
+
+            <div class="total-price" id="totalPrice">Итого: 0 ₽</div>
+            <button class="checkout-btn">Оформить заказ</button>
         </div>
     </div>
 
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Отображение нескольких товаров на главной
+        const featuredContainer = document.getElementById('featured-products');
+        if(featuredContainer) {
+            const featured = products.slice(0, 4); // Первые 4 товара
+            featured.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card glass-panel';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}">
+                    <h3 class="product-title">${product.title}</h3>
+                    <p style="font-size:0.9rem; margin-bottom:10px; opacity:0.8;">${product.description}</p>
+                    <div class="product-price">${product.price} ₽</div>
+                    <button class="add-to-cart-btn" onclick="addToCart(${product.id})">В корзину</button>
+                `;
+                featuredContainer.appendChild(card);
+            });
+        }
+    </script>
 </body>
 </html>
