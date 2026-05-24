@@ -1,109 +1,114 @@
-// Данные товаров
 const products = [
     {
         id: 1,
-        name: "Набор губок для посуды",
-        category: "khoztovary",
-        price: 299,
-        description: "Набор из 10 губок для мытья посуды. Отлично удаляют загрязнения, не царапают поверхность.",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop"
+        title: "Умный робот-пылесос",
+        price: 15990,
+        category: "electronics",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Robot+Vacuum",
+        description: "Автоматическая уборка с управлением со смартфона."
     },
     {
         id: 2,
-        name: "Швабра с отжимом",
-        category: "khoztovary",
-        price: 1890,
-        description: "Удобная швабра с системой отжима. Подходит для всех типов полов.",
-        image: "https://images.unsplash.com/photo-1585421514738-01798e1e8f3b?w=400&h=300&fit=crop"
+        title: "Набор ножей KitchenPro",
+        price: 4500,
+        category: "kitchen",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Knives+Set",
+        description: "Профессиональная сталь, эргономичные ручки."
     },
     {
         id: 3,
-        name: "Средство для мытья посуды",
-        category: "himiya",
-        price: 189,
-        description: "Эффективное средство для мытья посуды. Удаляет жир даже в холодной воде.",
-        image: "https://images.unsplash.com/photo-1585832679652-3e8d78c0f4d2?w=400&h=300&fit=crop"
+        title: "Органайзер для белья",
+        price: 1200,
+        category: "storage",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Storage+Box",
+        description: "Дышащий материал, компактное хранение."
     },
     {
         id: 4,
-        name: "Универсальное чистящее средство",
-        category: "himiya",
-        price: 349,
-        description: "Универсальное средство для уборки дома. Безопасно для детей и животных.",
-        image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&h=300&fit=crop"
+        title: "Универсальный очиститель",
+        price: 350,
+        category: "chemicals",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Cleaner",
+        description: "Экологичный состав, подходит для всех поверхностей."
     },
     {
         id: 5,
-        name: "Набор отверток",
-        category: "instrumenty",
-        price: 1290,
-        description: "Профессиональный набор отверток (12 предметов). Хромированная сталь.",
-        image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400&h=300&fit=crop"
+        title: "Аккумуляторная дрель",
+        price: 6700,
+        category: "tools",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Power+Drill",
+        description: "Мощный двигатель, два аккумулятора в комплекте."
     },
     {
         id: 6,
-        name: "Молоток столярный",
-        category: "instrumenty",
-        price: 890,
-        description: "Надежный молоток с деревянной ручкой. Вес 500г.",
-        image: "https://images.unsplash.com/photo-1586864387967-d02ef13a6f13?w=400&h=300&fit=crop"
+        title: "Увлажнитель воздуха",
+        price: 3200,
+        category: "electronics",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Humidifier",
+        description: "Тихая работа, подсветка, ароматизация."
     },
     {
         id: 7,
-        name: "Полотенце кухонное",
-        category: "tekstil",
-        price: 450,
-        description: "Набор из 3 кухонных полотенец. 100% хлопок, высокая впитываемость.",
-        image: "https://images.unsplash.com/photo-1616627547584-bf28cee262db?w=400&h=300&fit=crop"
+        title: "Набор губок (10 шт)",
+        price: 250,
+        category: "chemicals",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Sponges",
+        description: "Не царапают поверхность, отлично впитывают."
     },
     {
         id: 8,
-        name: "Прихватки для горячего",
-        category: "tekstil",
-        price: 350,
-        description: "Набор из 2 прихваток. Термостойкие, с красивым узором.",
-        image: "https://images.unsplash.com/photo-1593618998160-e34015e67543?w=400&h=300&fit=crop"
+        title: "Вакуумные пакеты",
+        price: 890,
+        category: "storage",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Vacuum+Bags",
+        description: "Экономия места до 70%, защита от моли."
     },
     {
         id: 9,
-        name: "Набор кастрюль",
-        category: "kuhnya",
-        price: 5990,
-        description: "Набор из 5 кастрюль разного объема. Нержавеющая сталь, антипригарное покрытие.",
-        image: "https://images.unsplash.com/photo-1584992236310-6eddd5696a68?w=400&h=300&fit=crop"
+        title: "Сковорода с антипригарным покрытием",
+        price: 2100,
+        category: "kitchen",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Frying+Pan",
+        description: "Равномерный нагрев, долговечное покрытие."
     },
     {
         id: 10,
-        name: "Сковорода керамическая",
-        category: "kuhnya",
-        price: 2490,
-        description: "Керамическая сковорода диаметром 28 см. Без вредного покрытия PFOA.",
-        image: "https://images.unsplash.com/photo-1590487415159-42537fa84d47?w=400&h=300&fit=crop"
+        title: "Набор отверток",
+        price: 1500,
+        category: "tools",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Screwdrivers",
+        description: "Магнитные наконечники, прочный кейс."
     },
     {
         id: 11,
-        name: "Ваза декоративная",
-        category: "dekor",
-        price: 1590,
-        description: "Стильная ваза для цветов. Современный дизайн, высота 30 см.",
-        image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=400&h=300&fit=crop"
+        title: "Светодиодная лампа (Умная)",
+        price: 1800,
+        category: "electronics",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Smart+Lamp",
+        description: "16 млн цветов, управление голосом."
     },
     {
         id: 12,
-        name: "Свечи ароматические",
-        category: "dekor",
-        price: 790,
-        description: "Набор из 3 ароматических свечей. Натуральный воск, время горения до 40 часов.",
-        image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=300&fit=crop"
+        title: "Швабра с отжимом",
+        price: 1900,
+        category: "tools",
+        image: "https://via.placeholder.com/300x300/ffffff/333333?text=Mop",
+        description: "Легкий отжим, микрофибра в комплекте."
     }
 ];
 
-// Категории товаров
-const categories = {
-    khoztovary: "Хоз. товары",
-    himiya: "Бытовая химия",
-    instrumenty: "Инструменты",
-    tekstil: "Текстиль",
-    kuhnya: "Для кухни",
-    dekor: "Декор"
+const categories = [
+    { id: 'all', name: 'Все товары' },
+    { id: 'electronics', name: 'Электроника' },
+    { id: 'kitchen', name: 'Кухня' },
+    { id: 'storage', name: 'Хранение' },
+    { id: 'chemicals', name: 'Бытовая химия' },
+    { id: 'tools', name: 'Инструменты' }
+];
+
+// Промокоды
+const promoCodes = {
+    "SALE2024": 10, // 10% скидка
+    "NEWUSER": 15,  // 15% скидка
+    "AMET500": 500  // Фиксированная скидка 500 руб
 };
