@@ -483,6 +483,13 @@ img {
     color: #BDC3C7;
 }
 
+.author-credit {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #95A5A6;
+    font-weight: 500;
+}
+
 /* Cart Modal */
 .cart-modal {
     display: none;
