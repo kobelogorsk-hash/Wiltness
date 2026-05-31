@@ -10,12 +10,13 @@
 </head>
 <body>
 
-    <header class="glass-panel">
+    <header>
         <div class="logo"><i class="fa-solid fa-house-chimney"></i> Дом Быта</div>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
-                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="catalog.html" class="active">Каталог</a></li>
+                <li><a href="services.html">Услуги</a></li>
                 <li><a href="about.html">О нас</a></li>
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
@@ -26,9 +27,12 @@
         </div>
     </header>
 
+    <div class="page-header">
+        <h1>Каталог товаров</h1>
+        <p style="color:var(--secondary-color);">Выберите категорию или просмотрите все товары</p>
+    </div>
+
     <div class="container">
-        <h1 style="text-align:center; margin-bottom:30px;">Каталог товаров</h1>
-        
         <div class="filters">
             <!-- Кнопки фильтров генерируются JS -->
         </div>
@@ -38,12 +42,12 @@
         </div>
     </div>
 
-    <footer class="glass-panel">
+    <footer>
         <p>&copy; 2024 Дом Быта. Все права защищены.</p>
         <p class="author-name">Разработчик: Амет</p>
     </footer>
 
-    <!-- Модальное окно (копия из index для работы на всех страницах) -->
+    <!-- Модальное окно корзины -->
     <div id="cartModal" class="modal">
         <div class="modal-content glass-panel">
             <span class="close-modal">&times;</span>
@@ -81,12 +85,17 @@
                 : products.filter(p => p.category === filter);
 
             filtered.forEach(product => {
+                const stars = '★'.repeat(Math.floor(product.rating || 5));
                 const card = document.createElement('div');
                 card.className = 'product-card glass-panel';
                 card.innerHTML = `
                     <img src="${product.image}" alt="${product.title}">
                     <h3 class="product-title">${product.title}</h3>
-                    <p style="font-size:0.9rem; margin-bottom:10px; opacity:0.8;">${product.description}</p>
+                    <div class="product-rating" style="margin-bottom:8px;">
+                        <span class="stars" style="color:var(--warning-color);">${stars}</span>
+                        <span style="font-size:0.85rem; color:var(--secondary-color);">(${product.reviews || 0})</span>
+                    </div>
+                    <p style="font-size:0.9rem; margin-bottom:10px; color:var(--secondary-color);">${product.description.substring(0, 70)}...</p>
                     <div class="product-price">${product.price} ₽</div>
                     <button class="add-to-cart-btn" onclick="addToCart(${product.id})">В корзину</button>
                 `;
