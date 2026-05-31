@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги и специалисты | Дом Быта</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-house-chimney"></i> Дом Быта
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="services.html" class="active">Услуги</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon-wrapper">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Поддержка и бытовые услуги</h1>
+        <p style="color:var(--secondary-color); max-width:600px; margin:0 auto;">
+            Найдите проверенных специалистов для решения любых бытовых задач. 
+            Все мастера прошли проверку и имеют положительные отзывы.
+        </p>
+    </div>
+
+    <div class="container">
+        <!-- Фильтры категорий -->
+        <div class="filters" id="service-filters">
+            <!-- Кнопки фильтров генерируются JS -->
+        </div>
+
+        <!-- Секция с мастерами -->
+        <h2 class="section-title">Наши специалисты</h2>
+        <div class="workers-grid" id="workers-container">
+            <!-- Карточки работников загружаются через JS -->
+        </div>
+
+        <!-- Форма создания резюме -->
+        <div style="margin-top:60px; text-align:center;">
+            <h2 class="section-title">Стать исполнителем</h2>
+            <p style="color:var(--secondary-color); margin-bottom:30px;">
+                Создайте свое резюме и начните получать заказы
+            </p>
+            <button class="add-to-cart-btn" onclick="showResumeForm()" style="max-width:300px;">
+                <i class="fa-solid fa-file-pen"></i> Создать резюме
+            </button>
+        </div>
+
+        <!-- Форма резюме (скрыта по умолчанию) -->
+        <div id="resumeFormSection" class="resume-form" style="display:none; margin-top:40px;">
+            <h2 style="text-align:center; margin-bottom:25px;">Анкета исполнителя</h2>
+            <form id="resumeForm" onsubmit="submitResume(event)">
+                <div class="form-group">
+                    <label>ФИО *</label>
+                    <input type="text" name="fullName" required placeholder="Иванов Иван Иванович">
+                </div>
+                <div class="form-group">
+                    <label>Специальность *</label>
+                    <select name="specialty" required>
+                        <option value="">Выберите специальность</option>
+                        <option value="plumber">Сантехник</option>
+                        <option value="electrician">Электрик</option>
+                        <option value="repair">Мастер по ремонту техники</option>
+                        <option value="watchmaker">Часовой мастер</option>
+                        <option value="audio">Ремонт аудиооборудования</option>
+                        <option value="beauty">Мастер красоты</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Телефон *</label>
+                    <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
+                </div>
+                <div class="form-group">
+                    <label>Опыт работы (лет)</label>
+                    <input type="number" name="experience" min="0" max="50" placeholder="Например: 5">
+                </div>
+                <div class="form-group">
+                    <label>Описание услуг *</label>
+                    <textarea name="description" required placeholder="Опишите ваши услуги, навыки и преимущества..." rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Предоставляемые услуги (через запятую)</label>
+                    <input type="text" name="services" placeholder="Установка смесителей, Ремонт труб, ...">
+                </div>
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Дом Быта. Все права защищены.</p>
+        <p class="author-name">Разработчик: Амет</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script>
+        // Рендеринг фильтров
+        const filtersContainer = document.getElementById('service-filters');
+        const workersContainer = document.getElementById('workers-container');
+
+        function renderFilters() {
+            filtersContainer.innerHTML = '';
+            serviceCategories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `filter-btn ${cat.id === 'all' ? 'active' : ''}`;
+                btn.textContent = cat.name;
+                btn.onclick = () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderWorkers(cat.id);
+                };
+                filtersContainer.appendChild(btn);
+            });
+        }
+
+        function renderWorkers(filter = 'all') {
+            workersContainer.innerHTML = '';
+            
+            let filtered = serviceWorkers;
+            if (filter !== 'all') {
+                // Простая фильтрация по specialty
+                const specialtyMap = {
+                    'plumber': 'Сантехник',
+                    'electrician': 'Электрик',
+                    'repair': 'Ремонт бытовой техники',
+                    'watchmaker': 'Мастер по ремонту часов',
+                    'audio': 'Ремонт гарнитуры и наушников',
+                    'beauty': 'Мастер маникюра'
+                };
+                if (specialtyMap[filter]) {
+                    filtered = serviceWorkers.filter(w => w.specialty.includes(specialtyMap[filter]));
+                }
+            }
+
+            filtered.forEach(worker => {
+                const stars = '★'.repeat(Math.floor(worker.rating)) + 
+                             (worker.rating % 1 >= 0.5 ? '½' : '');
+                
+                const card = document.createElement('div');
+                card.className = 'worker-card glass-panel';
+                card.innerHTML = `
+                    <img src="${worker.image}" alt="${worker.name}" class="worker-image">
+                    <h3 class="worker-name">${worker.name}</h3>
+                    <p class="worker-specialty">${worker.specialty}</p>
+                    
+                    ${worker.verified ? '<div class="verified-badge"><i class="fa-solid fa-circle-check"></i> Проверен</div>' : ''}
+                    
+                    <div class="worker-stats">
+                        <div class="stat-item">
+                            <div class="stat-value"><span class="stars">${stars}</span> ${worker.rating}</div>
+                            <div class="stat-label">Рейтинг</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">${worker.orders}</div>
+                            <div class="stat-label">Заказов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">${worker.reviews}</div>
+                            <div class="stat-label">Отзывов</div>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align:center; color:var(--secondary-color); font-size:0.9rem;">
+                        <i class="fa-solid fa-briefcase"></i> ${worker.experience} опыта
+                    </p>
+                    
+                    <p style="margin:15px 0; line-height:1.5;">${worker.description}</p>
+                    
+                    <div class="worker-services">
+                        <h4>Услуги:</h4>
+                        <div class="service-tags">
+                            ${worker.services.map(s => `<span class="service-tag">${s}</span>`).join('')}
+                        </div>
+                    </div>
+                    
+                    <button class="contact-worker-btn" onclick="contactWorker('${worker.name}', '${worker.phone}')">
+                        <i class="fa-solid fa-phone"></i> Связаться
+                    </button>
+                `;
+                workersContainer.appendChild(card);
+            });
+        }
+
+        function showResumeForm() {
+            document.getElementById('resumeFormSection').style.display = 'block';
+            document.getElementById('resumeFormSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitResume(e) {
+            e.preventDefault();
+            alert('Спасибо! Ваша заявка отправлена на рассмотрение. Мы свяжемся с вами в ближайшее время.');
+            document.getElementById('resumeForm').reset();
+            document.getElementById('resumeFormSection').style.display = 'none';
+        }
+
+        function contactWorker(name, phone) {
+            alert(`Специалист: ${name}\nТелефон: ${phone}\n\nПозвоните или напишите в WhatsApp/Telegram для обсуждения заказа.`);
+        }
+
+        // Инициализация
+        renderFilters();
+        renderWorkers();
+    </script>
+</body>
+</html>
